@@ -6,22 +6,12 @@ import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import HomeScreen from './screens/Home';
 import CategoryView from './screens/CategoryView';
+import HomeStackScreen from './HomeStackScreen';
 import CustomTabBar from './components/CustomTabBar';
+import { RouteProvider } from './RouteContext'; 
+import { navigationRef } from './NavigationService';
 
 const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
-
-// Prevent the splash screen from hiding automatically
-SplashScreen.preventAutoHideAsync();
-
-const MainStackScreen = () => {
-  return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="CategoryView" component={CategoryView} />
-    </Stack.Navigator>
-  );
-};
 
 const App = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -32,7 +22,7 @@ const App = () => {
       'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
     });
     setFontsLoaded(true);
-    await SplashScreen.hideAsync(); // Hide the splash screen once fonts are loaded
+    await SplashScreen.hideAsync();
   };
 
   useEffect(() => {
@@ -40,18 +30,21 @@ const App = () => {
   }, []);
 
   if (!fontsLoaded) {
-    return null; // Render nothing while fonts are loading
+    return null; 
   }
 
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        tabBar={props => <CustomTabBar {...props} />}
-        screenOptions={{ headerShown: false }}
-      >
-        <Tab.Screen name="HomeStack" component={MainStackScreen} />
-      </Tab.Navigator>
+    <NavigationContainer ref={navigationRef}>
+    <RouteProvider>
+        <Tab.Navigator
+          tabBar={props => <CustomTabBar {...props} />}
+          screenOptions={{ headerShown: false }}
+        >
+          <Tab.Screen name="HomeStack" component={HomeStackScreen} />
+        </Tab.Navigator>
+    </RouteProvider>
     </NavigationContainer>
+
   );
 };
 
