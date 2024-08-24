@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import HomeScreen from './screens/Home';
-import CategoryView from './screens/CategoryView';
 import HomeStackScreen from './HomeStackScreen';
 import CustomTabBar from './components/CustomTabBar';
 import { RouteProvider } from './RouteContext'; 
 import { navigationRef } from './NavigationService';
+import { SelectedDataProvider } from './context/SelectedDataContext'; // Ensure the correct path
 
 const Tab = createBottomTabNavigator();
 
@@ -34,6 +32,7 @@ const App = () => {
   }
 
   return (
+    <SelectedDataProvider>
     <NavigationContainer ref={navigationRef}>
     <RouteProvider>
         <Tab.Navigator
@@ -44,6 +43,7 @@ const App = () => {
         </Tab.Navigator>
     </RouteProvider>
     </NavigationContainer>
+    </SelectedDataProvider>
 
   );
 };
