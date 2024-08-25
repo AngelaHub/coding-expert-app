@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
+import Header from '../components/Header'; 
 
 const CategoryView = () => {
   const navigation = useNavigation();
@@ -8,23 +9,27 @@ const CategoryView = () => {
 
   const handleCategoryPress = (id) => {
     setSelectedCategoryId(id); 
-    console.log(`Selected CATEGORY ID: ${id}`)
     navigation.navigate('GenreView', { categoryId: id }); 
   };
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header/>
       <Text style={styles.title}>Wat is je favoriete leeftijdscategorie?</Text>
       <View style={styles.buttonContainer}>
+        
         <TouchableOpacity style={styles.button} onPress={() => handleCategoryPress(1)}>
           <Text style={styles.buttonText}>Jong volwassenen (12-18j)</Text>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.button} onPress={() => handleCategoryPress(2)}>
           <Text style={styles.buttonText}>Nieuw volwassenen (18-25j)</Text>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.button} onPress={() => handleCategoryPress(3)}>
           <Text style={styles.buttonText}>Volwassenen (18+)</Text>
         </TouchableOpacity>
+
       </View>
     </SafeAreaView>
   );
