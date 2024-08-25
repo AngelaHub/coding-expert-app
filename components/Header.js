@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <View style={styles.headerContainer}>
       <Image
-        source={require('../assets/A-icon.svg')}
+        source={require('../assets/A-icon.png')}
         style={styles.icon}
       />
     </View>
@@ -15,13 +15,13 @@ const Header = () => {
 const styles = StyleSheet.create({
   headerContainer: {
     position: 'absolute',
-    top: 10, // Adjust as needed
-    left: 10, // Adjust as needed
+    top: 56, // Adjust as needed
+    left: 32, // Adjust as needed
     zIndex: 1, // Ensures it stays on top
   },
   icon: {
-    width: 40, // Adjust size as needed
-    height: 40, // Adjust size as needed
+    width: 45, // Adjust size as needed
+    height: 24, // Adjust size as needed
   },
 });
 
