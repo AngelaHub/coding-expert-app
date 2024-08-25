@@ -4,7 +4,7 @@ import { useNavigationState } from '@react-navigation/native';
 const RouteContext = createContext();
 
 export const RouteProvider = ({ children }) => {
-  const [currentRoute, setCurrentRoute] = useState('');
+  const [currentRoute, setCurrentRoute] = useState('Home');
   const state = useNavigationState(state => state);
 
   useEffect(() => {
