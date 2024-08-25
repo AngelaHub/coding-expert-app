@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import * as Font from 'expo-font';
 import Header from '../components/Header'; 
 import { useNavigation } from '@react-navigation/native'; // Import useNavigation
 
@@ -13,7 +12,7 @@ const Home = () => {
     <SafeAreaView style={[styles.container, { paddingBottom: insets.bottom }]}>
       <Header />
       <View style={styles.content}>
-        <Text style={styles.title}>Op zoek naar een boek naar jouw smaak</Text>
+        <Text style={styles.title}>Op zoek naar een boek naar jouw smaak?</Text>
         <TouchableOpacity 
           style={styles.button} 
           onPress={() => navigation.navigate('CategoryView')}
