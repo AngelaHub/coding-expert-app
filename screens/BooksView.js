@@ -169,7 +169,8 @@ const styles = StyleSheet.create({
   },
   spin: {
     width: 28,
-    height: 25
+    height: 25,
+    marginBottom: 5
   },
   title: {
     fontSize: 20,
@@ -290,9 +291,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
-    width: 88,
-    height: 88,
-    borderRadius: 44,
+    width: 95,
+    height: 95,
+    borderRadius: 50,
     backgroundColor: '#0064B4',
     justifyContent: 'center',
     alignItems: 'center',
