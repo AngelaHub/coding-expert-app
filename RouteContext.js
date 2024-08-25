@@ -7,6 +7,10 @@ export const RouteProvider = ({ children }) => {
   const [currentRoute, setCurrentRoute] = useState('Home');
   const state = useNavigationState(state => state);
 
+  //The findCurrentRoute function is a helper that recursively checks if the current route has nested routes (a state object).
+  //If a nested route exists, it continues to check deeper until it finds the innermost active route.
+  //Once it finds the deepest active route (which doesn't have further nested routes), it returns the name of that route.
+
   useEffect(() => {
     if (state && state.routes[state.index]) {
       

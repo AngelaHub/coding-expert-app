@@ -7,6 +7,7 @@ const CategoryView = () => {
   const navigation = useNavigation();
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
 
+  // Here I send the category id to the genreView
   const handleCategoryPress = (id) => {
     setSelectedCategoryId(id); 
     navigation.navigate('GenreView', { categoryId: id }); 

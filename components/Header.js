@@ -15,13 +15,13 @@ const Header = () => {
 const styles = StyleSheet.create({
   headerContainer: {
     position: 'absolute',
-    top: 56, // Adjust as needed
-    left: 32, // Adjust as needed
-    zIndex: 1, // Ensures it stays on top
+    top: 56, 
+    left: 32, 
+    zIndex: 1, 
   },
   icon: {
-    width: 45, // Adjust size as needed
-    height: 24, // Adjust size as needed
+    width: 45, 
+    height: 24, 
   },
 });
 

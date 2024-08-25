@@ -7,13 +7,13 @@ import HomeScreen from './screens/Home';
 import CategoryView from './screens/CategoryView';
 import GenreView from './screens/GenreView';
 import BooksView from './screens/BooksView';
-import BookDetail from './screens/BookDetail';
 
 const HomeStack = createNativeStackNavigator();
 
 const HomeStackScreen = () => {
   const { setCurrentRoute } = useCurrentRoute();
 
+  // Whenever the user navigates to a different screen, this code automatically checks and updates which screen is currently being viewed
   useFocusEffect(
     React.useCallback(() => {
       const route = navigationRef.current?.getCurrentRoute();
@@ -23,13 +23,13 @@ const HomeStackScreen = () => {
     }, [])
   );
 
+  // Contains all the screens
   return (
     <HomeStack.Navigator screenOptions={{ headerShown: false }}>
       <HomeStack.Screen name="Home" component={HomeScreen} />
       <HomeStack.Screen name="CategoryView" component={CategoryView} />
       <HomeStack.Screen name="GenreView" component={GenreView} />
       <HomeStack.Screen name="BooksView" component={BooksView} />
-      <HomeStack.Screen name="BookDetail" component={BookDetail} />
     </HomeStack.Navigator>
   );
 };

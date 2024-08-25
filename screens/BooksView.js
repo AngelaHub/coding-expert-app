@@ -31,6 +31,7 @@ const BookView = () => {
     }
   };
 
+  // useEffect the first thing that loades 
   useEffect(() => {
     fetchBookDetails();
   }, [categoryId, genreId]);
@@ -39,6 +40,7 @@ const BookView = () => {
     setSelectedBookIndex(index);
   };
 
+  // The arrows to see other books
   const handleNextBook = () => { 
     setSelectedBookIndex((prevIndex) => (prevIndex + 1) % books.length);
   };

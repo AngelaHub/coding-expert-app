@@ -8,7 +8,7 @@ import Header from '../components/Header';
 const GenreView = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const selectedCategoryId  = route.params.categoryId; 
+  const selectedCategoryId  = route.params.categoryId; //This is the catecory ID from the prev screen
   const { selectedGenreId, setSelectedGenreId } = useContext(SelectedDataContext); 
 
   const handleGenrePress = (id) => {

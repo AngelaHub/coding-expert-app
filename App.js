@@ -33,10 +33,11 @@ const App = () => {
 
   //if fonts are not loaded then show nothing of the app / else show the stuff inside the return clause below
   if (!fontsLoaded) {
-    return null; 
+    return null;
   }
 
-  return (
+  //RouteProvider makes it possible to navigate between the screens, HomeStack: stack of screens
+  return ( 
     <SelectedDataProvider>
         <NavigationContainer ref={navigationRef}>
         <RouteProvider>
