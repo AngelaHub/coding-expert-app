@@ -7,6 +7,7 @@ import HomeScreen from './screens/Home';
 import CategoryView from './screens/CategoryView';
 import GenreView from './screens/GenreView';
 import BooksView from './screens/BooksView';
+import BookDetail from './screens/BookDetail';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ const HomeStackScreen = () => {
       <HomeStack.Screen name="CategoryView" component={CategoryView} />
       <HomeStack.Screen name="GenreView" component={GenreView} />
       <HomeStack.Screen name="BooksView" component={BooksView} />
+      <HomeStack.Screen name="BookDetail" component={BookDetail} />
     </HomeStack.Navigator>
   );
 };
