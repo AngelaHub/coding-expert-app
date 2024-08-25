@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, SafeAreaView, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Header from '../components/Header'; 
+import { SelectedDataContext } from '../context/SelectedDataContext';  // Import the context
 
 const BookView = () => {
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
   const [error, setError] = useState(null);
-  const [selectedBookIndex, setSelectedBookIndex] = useState(null); // Track selected book index
+  const { selectedBookIndex, setSelectedBookIndex } = useContext(SelectedDataContext); // Get context
   const route = useRoute();
   const { categoryId, genreId } = route.params || {};
 
@@ -147,6 +148,10 @@ const BookView = () => {
       )}
       {selectedBookIndex === null && (
         <TouchableOpacity style={styles.button} onPress={fetchBookDetails}>
+          <Image
+          source={require('../assets/spin.png')}
+        style={styles.spin}
+          ></Image>
           <Text style={styles.buttonText}>Andere</Text>
         </TouchableOpacity>
       )}
@@ -161,6 +166,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     width: '100%'
+  },
+  spin: {
+    width: 25,
+    height: 25
   },
   title: {
     fontSize: 20,
