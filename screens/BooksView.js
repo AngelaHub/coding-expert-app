@@ -168,8 +168,8 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   spin: {
-    width: 30,
-    height: 27
+    width: 28,
+    height: 25
   },
   title: {
     fontSize: 20,
