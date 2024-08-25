@@ -1,8 +1,9 @@
 import { React, useContext } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { SelectedDataContext } from '../context/SelectedDataContext'; 
+import Header from '../components/Header';
 
 const GenreView = () => {
   const navigation = useNavigation();
@@ -20,6 +21,7 @@ const GenreView = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header/>
           <Text style={styles.title}>Kies je lievelingsthema</Text>
       <ScrollView style={styles.scrollStyle} contentContainerStyle={styles.scrollViewContent}>
         <TouchableOpacity style={styles.button} onPress={() => handleGenrePress(1)}>
